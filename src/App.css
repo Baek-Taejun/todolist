@@ -23,21 +23,101 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-.black-nav{
+
+.nav-text1 {
   display: flex;
   background-color: white;
-
   color: black;
-  padding-left: 20px;
-
 }
-.box-nav{
+.nav-text2 {
   display: flex;
-  width: 100%;
   background-color: white;
-  padding-left: 20px;
-  padding-right: 50px;
+  color: black;
 }
+.box-nav {
+  display: flex;
+  background-color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-color: gray;
+  border-width: 1px;
+  border-style: solid;
+  justify-content: space-between;
+}
+.list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: left;
+  background-color: #eeeeee;
+  border-radius: 10px;
+}
+
+.input-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+.labelInput1,
+.labelInput2 {
+  margin-left: 50px;
+  font-weight: 900;
+}
+
+.titleInput1,
+.titleInput2 {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: white;
+  padding: 10px;
+  font-size: 18px;
+  margin-left: 20px;
+  width: 300px;
+}
+.titleButton {
+  padding: 10px 45px;
+  background-color: #238080;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 40px;
+}
+
+.card-box {
+  border: 3px solid #238080;
+  border-radius: 10px;
+  width: 300px;
+  height: 150px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.working-cards {
+  flex-basis: 100%;
+}
+
+.done-cards {
+  flex-basis: 100%;
+}
+
+.done-card {
+  margin-top: 20px;
+}
+
 .App-link {
   color: #61dafb;
 }
