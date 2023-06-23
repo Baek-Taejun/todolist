@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  max-width: 1200px;
+  min-width: 800px;
+  margin: 0 auto; /* 수평 가운데 정렬 */
 }
 
 .App-logo {
@@ -99,7 +101,7 @@ h2 {
 .card-box {
   border: 3px solid #238080;
   border-radius: 10px;
-  width: 350px;
+  width: 250px;
   height: 200px;
   text-align: left;
   padding: 20px;
@@ -109,7 +111,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 10px;
 }
 
 .card-button1 {
@@ -133,7 +135,7 @@ h2 {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 200px; /* 원하는 간격으로 조정해주세요 */
+  gap: 20px; /* 원하는 간격으로 조정해주세요 */
 }
 
 .App-link {
