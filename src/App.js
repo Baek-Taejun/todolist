@@ -3,8 +3,56 @@ import "./App.css";
 import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 
+// 카드 컨포넌트
+function TodoCard({ card, index, deleteCard, markAsDone }) {
+  return (
+    <Card key={index} className="card-box working-card">
+      <Card.Body>
+        <div>
+          <h2>{card.title}</h2>
+          <p>{card.content}</p>
+        </div>
+        <div className="cards-button">
+          <button className="card-button1" onClick={() => deleteCard(index)}>
+            삭제하기
+          </button>
+          {card.done ? (
+            <button className="card-button2" onClick={() => markAsDone(index)}>
+              취소
+            </button>
+          ) : (
+            <button className="card-button2" onClick={() => markAsDone(index)}>
+              완료
+            </button>
+          )}
+        </div>
+      </Card.Body>
+    </Card>
+  );
+}
+
 function App() {
-  let [todo, setTodo] = useState("제목");
+  let [todo, setTodo] = useState("");
+  let [cards, setCards] = useState([]);
+  let [content, setContent] = useState("");
+
+  const addCard = () => {
+    setCards([...cards, { title: todo, done: false, content: content }]);
+    setTodo("");
+    setContent("");
+  };
+
+  const markAsDone = (index) => {
+    const updatedCards = [...cards];
+    updatedCards[index].done = !updatedCards[index].done;
+    setCards(updatedCards);
+  };
+
+  const deleteCard = (index) => {
+    const updatedCards = [...cards];
+    updatedCards.splice(index, 1);
+    setCards(updatedCards);
+  };
 
   return (
     <div className="App">
@@ -17,35 +65,69 @@ function App() {
           <h4>React</h4>
         </div>
       </div>
+
       {/* 제목,내용박스 */}
       <div className="list">
         <div className="input-container">
           <label className="labelInput1">제목</label>
-          <input className="titleInput1" type="text" />
+          <input
+            className="titleInput1"
+            type="text"
+            value={todo}
+            onChange={(e) => setTodo(e.target.value)}
+          />
           <label className="labelInput2">내용</label>
-          <input className="titleInput2" type="text" />
+          <input
+            className="titleInput2"
+            type="text"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
         </div>
-        <button className="titleButton">추가하기</button>
+        <button className="titleButton" onClick={addCard}>
+          추가하기
+        </button>
       </div>
-      <Cards></Cards>
-    </div>
-  );
-}
 
-function Cards() {
-  return (
-    <Card className="card-box">
-      <Card.Body>
-        <div>
-          <h4>리액트 공부하기</h4>
-          <p>리액트 기초를 공부해 봅시다.</p>
+      {/* Working 영역 */}
+      <div className="working">
+        <h2 class="working-title">Working...🔥</h2>
+        <div className="card-list">
+          {cards.map((card, index) => {
+            if (!card.done) {
+              return (
+                <TodoCard
+                  key={index}
+                  card={card}
+                  index={index}
+                  deleteCard={deleteCard}
+                  markAsDone={markAsDone}
+                />
+              );
+            }
+          })}
         </div>
-        <div>
-          <button>삭제하기</button>
-          <button>완료</button>
+      </div>
+
+      {/* Done 영역 */}
+      <div className="done">
+        <h2>Done...🎉</h2>
+        <div className="card-list">
+          {cards.map(
+            (card, index) =>
+              card.done && (
+                <TodoCard
+                  key={index}
+                  card={card}
+                  index={index}
+                  deleteCard={deleteCard}
+                  markAsDone={markAsDone}
+                />
+              )
+          )}
         </div>
-      </Card.Body>
-    </Card>
+      </div>
+    </div>
   );
 }
 
