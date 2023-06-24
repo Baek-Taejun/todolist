@@ -14,12 +14,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-h2 {
-  margin-left: 0;
-}
-.working-title {
-  margin-left: 0;
-}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -101,41 +96,41 @@ h2 {
 .card-box {
   border: 3px solid #238080;
   border-radius: 10px;
+<<<<<<< HEAD
   width: 250px;
   height: 200px;
+=======
+  width: 300px;
+  height: 150px;
+>>>>>>> parent of 73c0007 (finish)
   text-align: left;
-  padding: 20px;
-}
-
-.cards-button {
   display: flex;
-  justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   margin-top: 10px;
+=======
+>>>>>>> parent of 73c0007 (finish)
 }
 
-.card-button1 {
-  border: 2px solid red;
-  border-radius: 5px;
-  background-color: white;
-  width: 150px;
-  height: 30px;
-  margin-right: 10px;
-  font-size: 15px;
-}
-.card-button2 {
-  border: 2px solid green;
-  border-radius: 5px;
-  background-color: white;
-  width: 150px;
-  height: 30px;
-  font-size: 15px;
-}
 .card-list {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+<<<<<<< HEAD
   gap: 20px; /* 원하는 간격으로 조정해주세요 */
+=======
+}
+
+.working-cards {
+  flex-basis: 100%;
+}
+
+.done-cards {
+  flex-basis: 100%;
+}
+
+.done-card {
+  margin-top: 20px;
+>>>>>>> parent of 73c0007 (finish)
 }
 
 .App-link {
