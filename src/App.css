@@ -132,9 +132,10 @@ h2 {
   font-size: 15px;
 }
 .card-list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-gap: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px; /* 원하는 간격으로 조정해주세요 */
 }
 
 .App-link {
