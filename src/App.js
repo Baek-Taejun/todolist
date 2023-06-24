@@ -36,11 +36,15 @@ function App() {
         <button className="titleButton">추가하기</button>
       </div>
       <Cards></Cards>
+<<<<<<< HEAD
+>>>>>>> parent of 73c0007 (finish)
+=======
 >>>>>>> parent of 73c0007 (finish)
     </div>
   );
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 function Mother(props) {
   //상속을 받으려는 자식은 props를 넣어줘야 한다. 그럼저기 16번째줄에 있는게 상속됨.
@@ -56,6 +60,8 @@ function GrandFather() {
 
 export default GrandFather; //여기는 최상위 컴포넌트와 명이 같아야 한다.
 =======
+=======
+>>>>>>> parent of 73c0007 (finish)
 function Cards() {
   return (
     <Card className="card-box">
