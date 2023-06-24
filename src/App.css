@@ -98,6 +98,7 @@
   border-radius: 10px;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   width: 250px;
   height: 200px;
 =======
@@ -118,6 +119,13 @@
   display: flex;
   align-items: center;
 >>>>>>> parent of 73c0007 (finish)
+=======
+  width: 300px;
+  height: 150px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+>>>>>>> parent of 73c0007 (finish)
 }
 
 .card-list {
@@ -125,8 +133,11 @@
   flex-wrap: wrap;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   gap: 20px; /* 원하는 간격으로 조정해주세요 */
 =======
+=======
+>>>>>>> parent of 73c0007 (finish)
 =======
 >>>>>>> parent of 73c0007 (finish)
 }
@@ -142,6 +153,9 @@
 .done-card {
   margin-top: 20px;
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 73c0007 (finish)
+=======
 >>>>>>> parent of 73c0007 (finish)
 =======
 >>>>>>> parent of 73c0007 (finish)

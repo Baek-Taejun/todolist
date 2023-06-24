@@ -37,6 +37,9 @@ function App() {
       </div>
       <Cards></Cards>
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 73c0007 (finish)
+=======
 >>>>>>> parent of 73c0007 (finish)
 =======
 >>>>>>> parent of 73c0007 (finish)
@@ -44,6 +47,7 @@ function App() {
   );
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 function Mother(props) {
@@ -60,6 +64,8 @@ function GrandFather() {
 
 export default GrandFather; //여기는 최상위 컴포넌트와 명이 같아야 한다.
 =======
+=======
+>>>>>>> parent of 73c0007 (finish)
 =======
 >>>>>>> parent of 73c0007 (finish)
 function Cards() {
