@@ -3,28 +3,24 @@ import "./App.css";
 import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 
-// 카드 컨포넌트
-function TodoCard({ card, index, deleteCard, markAsDone }) {
+// 카드 컴포넌트
+function TodoCard({ card, deleteCard, markAsDone }) {
+  const { id, title, content, done } = card;
+
   return (
-    <Card key={index} className="card-box working-card">
+    <Card key={id} className="card-box working-card">
       <Card.Body>
         <div>
-          <h2>{card.title}</h2>
-          <p>{card.content}</p>
+          <h2>{title}</h2>
+          <p>{content}</p>
         </div>
         <div className="cards-button">
-          <button className="card-button1" onClick={() => deleteCard(index)}>
+          <button className="card-button1" onClick={() => deleteCard(id)}>
             삭제하기
           </button>
-          {card.done ? (
-            <button className="card-button2" onClick={() => markAsDone(index)}>
-              취소
-            </button>
-          ) : (
-            <button className="card-button2" onClick={() => markAsDone(index)}>
-              완료
-            </button>
-          )}
+          <button className="card-button2" onClick={() => markAsDone(id)}>
+            {done ? "취소" : "완료"}
+          </button>
         </div>
       </Card.Body>
     </Card>
@@ -32,28 +28,42 @@ function TodoCard({ card, index, deleteCard, markAsDone }) {
 }
 
 function App() {
-  let [todo, setTodo] = useState("");
-  let [cards, setCards] = useState([]);
-  let [content, setContent] = useState("");
+  const [todo, setTodo] = useState("");
+  const [cards, setCards] = useState([]);
+  const [content, setContent] = useState("");
+  const [nextId, setNextId] = useState(1);
 
   const addCard = () => {
-    setCards([...cards, { title: todo, done: false, content: content }]);
+    const newCard = {
+      id: nextId,
+      title: todo,
+      done: false,
+      content: content,
+    };
+
+    setCards([...cards, newCard]);
     setTodo("");
     setContent("");
+    setNextId(nextId + 1);
   };
 
-  const markAsDone = (index) => {
-    const updatedCards = [...cards];
-    updatedCards[index].done = !updatedCards[index].done;
+  const markAsDone = (id) => {
+    const updatedCards = cards.map((card) => {
+      if (card.id === id) {
+        return { ...card, done: !card.done };
+      }
+      return card;
+    });
+
     setCards(updatedCards);
   };
 
-  const deleteCard = (index) => {
-    const updatedCards = [...cards];
-    updatedCards.splice(index, 1);
+  const deleteCard = (id) => {
+    const updatedCards = cards.filter((card) => card.id !== id);
     setCards(updatedCards);
   };
 
+  console.log(cards);
   return (
     <div className="App">
       {/* 나브박스 */}
@@ -91,20 +101,20 @@ function App() {
 
       {/* Working 영역 */}
       <div className="working">
-        <h2 class="working-title">Working...🔥</h2>
+        <h2 className="working-title">Working...🔥</h2>
         <div className="card-list">
-          {cards.map((card, index) => {
+          {cards.map((card) => {
             if (!card.done) {
               return (
                 <TodoCard
-                  key={index}
+                  key={card.id}
                   card={card}
-                  index={index}
                   deleteCard={deleteCard}
                   markAsDone={markAsDone}
                 />
               );
             }
+            return null;
           })}
         </div>
       </div>
@@ -113,18 +123,19 @@ function App() {
       <div className="done">
         <h2>Done...🎉</h2>
         <div className="card-list">
-          {cards.map(
-            (card, index) =>
-              card.done && (
+          {cards.map((card) => {
+            if (card.done) {
+              return (
                 <TodoCard
-                  key={index}
+                  key={card.id}
                   card={card}
-                  index={index}
                   deleteCard={deleteCard}
                   markAsDone={markAsDone}
                 />
-              )
-          )}
+              );
+            }
+            return null;
+          })}
         </div>
       </div>
     </div>
