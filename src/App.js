@@ -1,38 +1,9 @@
 import "./App.css";
 import React, { useState } from "react";
-import Card from "react-bootstrap/Card";
+import CardList from "./components/CardList";
 
-{
-  /* ------------------------------------------------------------------------------ */
-}
 
-// 카드 컴포넌트
-function TodoCard({ card, deleteCard, markAsDone }) {
-  const { id, title, content, done } = card;
 
-  return (
-    <Card key={id} className="card-box working-card">
-      <Card.Body>
-        <div>
-          <h2>{title}</h2>
-          <p>{content}</p>
-        </div>
-        <div className="cards-button">
-          <button className="card-button1" onClick={() => deleteCard(id)}>
-            삭제하기
-          </button>
-          <button className="card-button2" onClick={() => markAsDone(id)}>
-            {done ? "취소" : "완료"}
-          </button>
-        </div>
-      </Card.Body>
-    </Card>
-  );
-}
-
-{
-  /* ------------------------------------------------------------------------------ */
-}
 
 function App() {
   const [todo, setTodo] = useState("");
@@ -122,7 +93,7 @@ function App() {
           {cards.map((card) => {
             if (!card.done) {
               return (
-                <TodoCard
+                <CardList
                   key={card.id}
                   card={card}
                   deleteCard={deleteCard}
@@ -144,7 +115,7 @@ function App() {
           {cards.map((card) => {
             if (card.done) {
               return (
-                <TodoCard
+                <CardList
                   key={card.id}
                   card={card}
                   deleteCard={deleteCard}
