@@ -136,16 +136,16 @@ h2 {
 @media (max-width: 1200px) {
   .App {
     max-width: 100%;
-    margin: 0 20px; /* 좌우 여백 추가 */
+    margin: 0 20px;
   }
   .card-list {
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* 카드 컬럼 수 조정 */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
   }
 }
 
 @media (max-width: 800px) {
   .card-list {
-    grid-template-columns: repeat(1, minmax(0, 1fr)); /* 카드 컬럼 수 조정 */
+    grid-template-columns: repeat(1, minmax(0, 1fr)); 
   }
 }
 
