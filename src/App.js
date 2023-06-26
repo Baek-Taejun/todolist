@@ -1,7 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
 import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
+
+{
+  /* ------------------------------------------------------------------------------ */
+}
 
 // 카드 컴포넌트
 function TodoCard({ card, deleteCard, markAsDone }) {
@@ -25,6 +28,10 @@ function TodoCard({ card, deleteCard, markAsDone }) {
       </Card.Body>
     </Card>
   );
+}
+
+{
+  /* ------------------------------------------------------------------------------ */
 }
 
 function App() {
@@ -65,6 +72,10 @@ function App() {
 
   console.log(cards);
 
+  {
+    /* ------------------------------------------------------------------------------ */
+  }
+
   return (
     <div className="App">
       {/* 나브박스 */}
@@ -76,6 +87,8 @@ function App() {
           <h4>React</h4>
         </div>
       </div>
+
+      {/* ------------------------------------------------------------------------------ */}
 
       {/* 제목,내용박스 */}
       <div className="list">
@@ -100,6 +113,8 @@ function App() {
         </button>
       </div>
 
+      {/* ------------------------------------------------------------------------------ */}
+
       {/* Working 영역 */}
       <div className="working">
         <h2 className="working-title">Working...🔥</h2>
@@ -119,6 +134,8 @@ function App() {
           })}
         </div>
       </div>
+
+      {/* ------------------------------------------------------------------------------ */}
 
       {/* Done 영역 */}
       <div className="done">
