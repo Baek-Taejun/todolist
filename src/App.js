@@ -1,9 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
-import CardList from "./components/CardList";
-
-
-
+import TodoLayout from "./components/TodoLayout";
 
 function App() {
   const [todo, setTodo] = useState("");
@@ -87,46 +84,26 @@ function App() {
       {/* ------------------------------------------------------------------------------ */}
 
       {/* Working 영역 */}
-      <div className="working">
-        <h2 className="working-title">Working...🔥</h2>
-        <div className="card-list">
-          {cards.map((card) => {
-            if (!card.done) {
-              return (
-                <CardList
-                  key={card.id}
-                  card={card}
-                  deleteCard={deleteCard}
-                  markAsDone={markAsDone}
-                />
-              );
-            }
-            return null;
-          })}
-        </div>
-      </div>
+      <TodoLayout
+        title="Working...🔥"
+        cards={cards}
+        deleteCard={deleteCard}
+        markAsDone={markAsDone}
+        isDone={false}
+      />
+      
 
       {/* ------------------------------------------------------------------------------ */}
 
       {/* Done 영역 */}
-      <div className="done">
-        <h2>Done...🎉</h2>
-        <div className="card-list">
-          {cards.map((card) => {
-            if (card.done) {
-              return (
-                <CardList
-                  key={card.id}
-                  card={card}
-                  deleteCard={deleteCard}
-                  markAsDone={markAsDone}
-                />
-              );
-            }
-            return null;
-          })}
-        </div>
-      </div>
+      <TodoLayout
+        title="Done...🎉"
+        cards={cards}
+        deleteCard={deleteCard}
+        markAsDone={markAsDone}
+        isDone={true}
+      />
+      
     </div>
   );
 }
