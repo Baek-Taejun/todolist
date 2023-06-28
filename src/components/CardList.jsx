@@ -1,5 +1,7 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
+import * as Styled from '../styled'
+import {Theme} from '../theme'
 
 // 카드 컴포넌트
 function CardList({ card, deleteCard, markAsDone }) {
@@ -13,12 +15,14 @@ function CardList({ card, deleteCard, markAsDone }) {
           <p>{content}</p>
         </div>
         <div className="cards-button">
-          <button className="card-button1" onClick={() => deleteCard(id)}>
-            삭제하기
-          </button>
-          <button className="card-button2" onClick={() => markAsDone(id)}>
-            {done ? "취소" : "완료"}
-          </button>
+          <Styled.CardButton 
+            color={Theme.color.red} 
+            onClick={() => deleteCard(id)}
+            children="삭제하기"/>
+          <Styled.CardButton 
+            color={Theme.color.green} 
+            onClick={() => markAsDone(id)}
+            children={done ? "취소" : "완료"}/>
         </div>
       </Card.Body>
     </Card>

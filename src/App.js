@@ -1,48 +1,19 @@
 import "./App.css";
-import React, { useState } from "react";
+import React from "react";
 import TodoLayout from "./components/TodoLayout";
+import { useTodo } from "./hooks/useTodo";
 
 function App() {
-  const [todo, setTodo] = useState("");
-  const [cards, setCards] = useState([]);
-  const [content, setContent] = useState("");
-  const [nextId, setNextId] = useState(1);
-
-  const addCard = () => {
-    const newCard = {
-      id: nextId,
-      title: todo,
-      done: false,
-      content: content,
-    };
-
-    setCards([...cards, newCard]);
-    setTodo("");
-    setContent("");
-    setNextId(nextId + 1);
-  };
-
-  const markAsDone = (id) => {
-    const updatedCards = cards.map((card) => {
-      if (card.id === id) {
-        return { ...card, done: !card.done };
-      }
-      return card;
-    });
-
-    setCards(updatedCards);
-  };
-
-  const deleteCard = (id) => {
-    const updatedCards = cards.filter((card) => card.id !== id);
-    setCards(updatedCards);
-  };
-
-  console.log(cards);
-
-  {
-    /* ------------------------------------------------------------------------------ */
-  }
+  const {
+    todo,
+    setTodo,
+    content,
+    setContent,
+    addCard,
+    markAsDone,
+    deleteCard,
+    cards,
+  } = useTodo();
 
   return (
     <div className="App">
@@ -91,7 +62,6 @@ function App() {
         markAsDone={markAsDone}
         isDone={false}
       />
-      
 
       {/* ------------------------------------------------------------------------------ */}
 
@@ -103,7 +73,6 @@ function App() {
         markAsDone={markAsDone}
         isDone={true}
       />
-      
     </div>
   );
 }
